@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="menu-button" class="menu-button" onclick="toggleCardMenu()">☰</button>
+    <div class="sidebar" id="card-menu">
+        <div class="card" onclick="handleCardClick('iV5qb8ttzD7Ytl69U_-ONcW2tW_lrFrOVKExyKJHlJM',this)">
+            <img src="Images/lily.avif" alt="Image 1">
+            <div class="caption"><b>Lily</b><br>Your AI assistant</div>
+        </div>
+        <div class="card" onclick="handleCardClick('Hpk0GozjACb3mtHeAaAMb0r9pcJGbzF317I_Ux_ALOA',this)">
+            <img src="Images/psych.avif" alt="Image 2">
+            <div class="caption"><b>Psychologist</b></div>
+        </div>
+        <div class="card" onclick="handleCardClick('pQus24wbEGuwjRkJSWJGiYT4jA79HsrU5BMbekJB_lc',this)">
+            <img src="Images/AlbertEinstein4.avif" alt="Image 2">
+            <div class="caption"><b>Albert Einstein</b></div>
+        </div>
+        <div class="card" onclick="handleCardClick('5Ku7FpDG3A0mI1LXN22DtZVXDBS8xVmwjbFeUwaQOec',this)">
+            <img src="Images/socrates.avif" alt="Image 2">
+            <div class="caption"><b>Socrates</div>
+        </div>
+        <div class="card" onclick="handleCardClick('KiyYiLgKxmc2huPSf8nkd8eRvrNv7ni21FFm5kzKErM',this)">
+            <img src="Images/loki.avif" alt="Image 2">
+            <div class="caption"><b>Loki</div>
+        </div>
+        <div class="card" onclick="handleCardClick('2T3Xhqf5B_b9Wrn8Bg0FeCYR7BPx2LtJQJJCIB4Qe18',this)">
+            <img src="Images/Polyglot.avif" alt="Image 2">
+            <div class="caption"><b>Polyglot</b></div>
+        </div>
+        <div class="card" onclick="handleCardClick('Card 2 clicked')">
+            <img src="image2.jpg" alt="Image 2">
+            <div class="caption">Card 2</div>
+        </div>
+        <div class="card" onclick="handleCardClick('Card 2 clicked')">
+            <img src="image2.jpg" alt="Image 2">
+            <div class="caption">Card 2</div>
+        </div>
+        <div class="card" onclick="handleCardClick('Card 2 clicked')">
+            <img src="image2.jpg" alt="Image 2">
+            <div class="caption">Card 2</div>
+        </div>
+        <div class="card" onclick="handleCardClick('Hpk0GozjACb3mtHeAaAMb0r9pcJGbzF317I_Ux_ALOA',this)">
+            <img src="Images/psych.avif" alt="Image 2">
+            <div class="caption"><b>Psychologist</b></div>
+        </div>
+        <div class="card" onclick="handleCardClick('Hpk0GozjACb3mtHeAaAMb0r9pcJGbzF317I_Ux_ALOA',this)">
+            <img src="Images/psych.avif" alt="Image 2">
+            <div class="caption"><b>Psychologist</b></div>
+        </div>
+    </div>
+    <div class="_chat-center">
+    <div class="chat-container">
+        <div class="chat-messages" id="chat-messages"></div>
+        <div id="loading-spinner" class="loading-dots-container">
+            <div class="loading-dots">
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-btn">Send</button>
+            
+        </div>
+    </div>
+    </div>
+    <button class="switch" id="dark-mode-toggle">
+        <label class="slider"></label>
+    </button>
+    <script src="script.js"></script>
+</body>
+</html>

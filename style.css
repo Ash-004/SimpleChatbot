@@ -1,0 +1,380 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    color: #eee;
+    display: flex;
+    min-height: 100vh;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Chat container styles */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+    min-width: 1000px;
+    background-color: #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin: 10px auto;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Chat center styles */
+.chat-center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Chat messages styles */
+.chat-messages {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    max-width: 1000px;
+}
+
+/* Message styles */
+.user-message, .bot-message {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+
+/* User message styles */
+.user-message {
+    align-self: flex-end;
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Bot message styles */
+.bot-message {
+    align-self: flex-start;
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+/* Loading dots styles */
+.loading-dots-container {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+}
+
+.loading-dots {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 24px;
+}
+
+.loading-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #007bff;
+    border-radius: 50%;
+    position: absolute;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.loading-dot:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.loading-dot:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1.0); }
+}
+
+/* Chat input styles */
+.chat-input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+}
+
+/* Input styles */
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    color: #eee;
+    background-color: #444;
+}
+
+.chat-input input.light-mode {
+    color: #333;
+    background-color: #f8f8f8;
+}
+
+/* Button styles */
+.chat-input button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Dark mode switch styles */
+.switch {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    z-index: 1;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    overflow-y: auto;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+input:checked + .slider {
+    background-color: #007bff;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* Light mode styles */
+body.light-mode {
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+.chat-container.light-mode {
+    background-color: #f8f8f8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-message.light-mode {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.bot-message.light-mode {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.loading-dots.light-mode .loading-dot {
+    background-color: #007bff;
+}
+
+.chat-input.light-mode {
+    background-color: #fff;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 150px;
+    /* Adjust the width as needed */
+    background-color: #6e6e6e9c;
+    padding: 2px;
+    overflow-y: auto;
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    max-height: calc(100vh - 70px); /* Limit the max height to fit the available space */
+    z-index: 1;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Card styles */
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    color: #eee;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    border-radius: 4px;
+}
+
+/* Active card styles */
+.card.active {
+    border: 3px solid #ffffff;
+}
+
+body.light-mode .card.active {
+    border-bottom: 2px solid #000000;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+.card img {
+    width: 108px;
+    height: 108px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.caption {
+    text-align: center;
+    background-color: #333;
+    border-radius: 0 0 4px 4px;
+    /* Rounded corners for the bottom of the caption */
+}
+
+/* Light mode styles for cards */
+body.light-mode .card {
+    background-color: #f8f8f8;
+    color: #333;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+body.light-mode .caption {
+    background-color: #f1f1f1;
+}
+
+/* Menu button styles */
+.menu-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    background-color: #333;
+    color: #eee;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+/* Add some styling for the card menu */
+#card-menu {
+    position: fixed;
+    top: 60px;
+    left: 10px;
+    background-color: #5858588a;
+    display: none;
+    z-index: 1;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .chat-container {
+        width: 100%;
+    }
+
+    .chat-center {
+        padding: 10px;
+    }
+    .chat-messages{
+        max-width: 400px;
+    }
+    .user-message, .bot-message {
+        max-width: 100%;
+    }
+/* 
+    .chat-input {
+        flex-direction: column;
+        align-items: flex-start;
+    } */
+
+    .chat-input input {
+        width: 100%;
+    }
+
+    .chat-input button {
+        margin-top: 10px;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    #menu-button {
+        display: block;
+    }
+
+    #card-menu {
+        top: 40px;
+        left: 10px;
+    }
+}
+
+@media (max-width: 1000px){
+.chat-container{
+min-width: 500px;
+}
+.chat-messages{
+    max-width: 500px;
+}
+}
+
+@media (max-width: 813px){
+    .chat-container{
+    min-width: 400px;
+    }
+    .chat-messages{
+        max-width: 400px;
+    }
+    }
+
+
+    @media (max-width: 480px){
+        .chat-container{
+        min-width: 300px;
+        }
+        .chat-messages{
+            max-width: 300px;
+        }
+        }
+    
