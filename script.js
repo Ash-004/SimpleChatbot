@@ -1,14 +1,4 @@
-function handleCardClick(newCharacterId,clickedCard) {
-    characterId = newCharacterId; 
-    const allCards = document.querySelectorAll('.card');
-    allCards.forEach(card => card.classList.remove('active'));
-
-    // Add the 'active' class to the clicked card
-    clickedCard.classList.add('active');
-    console.log("x")
-
-}
-let characterId = "iV5qb8ttzD7Ytl69U_-ONcW2tW_lrFrOVKExyKJHlJM"; 
+let characterId = "Hpk0GozjACb3mtHeAaAMb0r9pcJGbzF317I_Ux_ALOA"; 
 function toggleCardMenu() {
     const cardMenu = document.getElementById("card-menu");
     if (cardMenu) {
@@ -16,10 +6,10 @@ function toggleCardMenu() {
     }
 }
 
-// Function to handle card selection
 function handleCardClick(newCharacterId, clickedCard) {
     characterId = newCharacterId; 
     const cardMenu = document.getElementById("card-menu");
+    
     if (cardMenu) {
         cardMenu.style.display = "none";
     }
