@@ -1,4 +1,6 @@
-let characterId = "Hpk0GozjACb3mtHeAaAMb0r9pcJGbzF317I_Ux_ALOA"; 
+// script.js
+let characterId = "Hpk0GozjACb3mtHeAaAMb0r9pcJGbzF317I_Ux_ALOA";
+
 function toggleCardMenu() {
     const cardMenu = document.getElementById("card-menu");
     if (cardMenu) {
@@ -7,9 +9,9 @@ function toggleCardMenu() {
 }
 
 function handleCardClick(newCharacterId, clickedCard) {
-    characterId = newCharacterId; 
+    characterId = newCharacterId;
     const cardMenu = document.getElementById("card-menu");
-    
+
     if (cardMenu) {
         cardMenu.style.display = "none";
     }
@@ -17,6 +19,10 @@ function handleCardClick(newCharacterId, clickedCard) {
     const allCards = document.querySelectorAll('.card');
     allCards.forEach(card => card.classList.remove('active'));
     clickedCard.classList.add('active');
+    const chatMessages = document.getElementById("chat-messages");
+    chatMessages.innerHTML = "";
+    
+
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -24,6 +30,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const userInput = document.getElementById("user-input");
     const sendBtn = document.getElementById("send-btn");
     const loadingSpinner = document.getElementById("loading-spinner");
+
+    let isServerProcessing = false; // Variable to track server processing
+
+    // Function to show the loading spinner
+    function showLoadingSpinner() {
+        loadingSpinner.style.display = "block";
+        isServerProcessing = true;
+    }
+
+    // Function to hide the loading spinner
+    function hideLoadingSpinner() {
+        loadingSpinner.style.display = "none";
+        isServerProcessing = false;
+    }
 
     // Function to append a user message to the chat box
     function appendUserMessage(message) {
@@ -41,8 +61,12 @@ document.addEventListener("DOMContentLoaded", () => {
         chatMessages.appendChild(botMessage);
     }
 
-    
+    async function sendFirstMessage() {
+        const botResponse = await sendMessageToServer("Who are you?");
+        appendBotMessage(botResponse);
+    }
 
+    sendFirstMessage();
     // Function to send user input to the server and receive a response
     async function sendMessageToServer(message) {
         try {
@@ -65,17 +89,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // Function to handle user input
     async function handleUserInput() {
         const message = userInput.value.trim();
-        if (message) {
+        if (message && !isServerProcessing) { // Only handle input if the server is not processing
             appendUserMessage(message);
             userInput.value = "";
 
-            loadingSpinner.style.display = "block"; // Show loading spinner
+            showLoadingSpinner(); // Show loading spinner before sending the user message
 
             // Simulate bot response (you will replace this with actual API call)
             const botResponse = await sendMessageToServer(message);
-            appendBotMessage(botResponse);
 
-            loadingSpinner.style.display = "none"; // Hide loading spinner
+            hideLoadingSpinner(); // Hide loading spinner after receiving the bot response
+
+            appendBotMessage(botResponse);
         }
     }
 

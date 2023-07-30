@@ -25,7 +25,7 @@
         </div>
         <div class="card" onclick="handleCardClick('5Ku7FpDG3A0mI1LXN22DtZVXDBS8xVmwjbFeUwaQOec',this)">
             <img src="Images/socrates.avif" alt="Image 2">
-            <div class="caption"><b>Socrates</div>
+            <div class="caption"><b>Socrates</b></div>
         </div>
         <div class="card" onclick="handleCardClick('KiyYiLgKxmc2huPSf8nkd8eRvrNv7ni21FFm5kzKErM',this)">
             <img src="Images/loki.avif" alt="Image 2">
@@ -62,9 +62,14 @@
         </div>
     </div>
     </div>
-    <button class="switch" id="dark-mode-toggle">
-        <label class="slider"></label>
-    </button>
+<!-- Dark mode switch -->
+<div class="switch">
+  <input type="checkbox" id="dark-mode-toggle" class="slider-checkbox">
+  <label for="dark-mode-toggle" class="slider">
+    <span class="slider-round"></span>
+  </label>
+</div>
+
     <script src="script.js"></script>
 </body>
 </html>

@@ -23,6 +23,7 @@ body {
     margin: 10px auto;
     padding: 20px;
     overflow-y: auto;
+    border-radius: 2%;
 }
 
 /* Chat center styles */
@@ -161,7 +162,7 @@ body {
     overflow-y: auto;
 }
 
-.slider:before {
+.slider-round {
     position: absolute;
     content: "";
     height: 14px;
@@ -173,13 +174,11 @@ body {
     transition: transform 0.3s ease;
 }
 
-input:checked + .slider {
+input:checked + .slider .slider-round {
+    transform: translateX(20px);
     background-color: #007bff;
 }
 
-input:checked + .slider:before {
-    transform: translateX(20px);
-}
 
 /* Light mode styles */
 body.light-mode {
@@ -207,7 +206,7 @@ body.light-mode {
 }
 
 .chat-input.light-mode {
-    background-color: #fff;
+    background-color: #ffffff00;
 }
 
 /* Sidebar styles */
